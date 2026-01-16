@@ -6,9 +6,17 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        nav: ["var(--font-nav)"],
+        heading: ["var(--font-heading)"],
+        body: ["var(--font-body)"],
+      }
+    },
   },
   plugins: [
     require('daisyui'), 
   ],
 }
+
+

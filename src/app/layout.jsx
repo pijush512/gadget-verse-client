@@ -1,16 +1,34 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Orbitron, Poppins, Outfit } from "next/font/google";
 import "./globals.css";
 import MainLayout from "./(main)/layout";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const navFont = Orbitron({
+  variable: "--font-nav",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const bodyFont = Outfit({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
+
+const headingFont = Poppins({
+  variable: "--font-heading",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+});
+
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
+
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 export const metadata = {
   title: "GadgetVerse",
@@ -25,7 +43,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${navFont.variable} ${headingFont.variable} ${bodyFont.variable} font-body antialiased`}
       >
         <MainLayout>
           {children}
