@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Mail, Phone, Cpu, Lock } from 'lucide-react';
+import { Github, Facebook, Linkedin, Instagram, Mail, Phone, Cpu, Lock } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,10 +9,10 @@ const Footer = () => {
   return (
     <footer className="bg-neutral text-neutral-content py-16 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        
+
         {/* উপরের মেইন অংশ */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          
+
           {/* ১. লোগো ও বর্ণনা */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2 text-white">
@@ -22,7 +22,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-sm opacity-60 leading-relaxed max-w-xs">
-             Your ultimate destination for premium gadgets. We are committed to simplifying your tech life with the latest innovations and quality service.
+              Your ultimate destination for premium gadgets. We are committed to simplifying your tech life with the latest innovations and quality service.
             </p>
           </div>
 
@@ -39,9 +39,20 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-2">Connect With Us</h4>
             <div className="flex gap-4">
-              <Facebook size={20} className="hover:text-primary cursor-pointer" />
-              <Instagram size={20} className="hover:text-primary cursor-pointer" />
-              <Twitter size={20} className="hover:text-primary cursor-pointer" />
+              <Facebook 
+              size={20} 
+              className="hover:text-primary cursor-pointer"
+              onClick={() => window.open("https://www.facebook.com/share/1FDAVFHtBF/", "_blank")} />
+              <Linkedin
+                size={20}
+                className="hover:text-[#422ad5] cursor-pointer transition-all duration-300 hover:scale-110"
+                onClick={() => window.open("https://www.linkedin.com/in/pijushsarkeralways/", "_blank")}
+              />
+              <Github
+                size={20}
+                className="hover:text-[#422ad5] cursor-pointer transition-colors"
+                onClick={() => window.open("https://github.com/pijush512", "_blank")}
+              />
             </div>
             <div className="pt-4 space-y-2 text-sm opacity-70">
               <p className="flex items-center gap-2"><Mail size={16} /> info@gadgetverse.com</p>
@@ -56,7 +67,7 @@ const Footer = () => {
           <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
             © {currentYear} GadgetVerse. All Rights Reserved.
           </p>
-          
+
           {/* সিকিউরিটি ব্যাজ - গোল্ডেন তালা সহ */}
           <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest opacity-60">
             <Lock size={12} className="text-[#f3bd0c]" strokeWidth={3} />
