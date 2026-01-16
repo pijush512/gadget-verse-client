@@ -1,7 +1,7 @@
 import { Orbitron, Poppins, Outfit } from "next/font/google";
 import "./globals.css";
 import MainLayout from "./(main)/layout";
-
+import { Toaster } from 'react-hot-toast';
 const navFont = Orbitron({
   variable: "--font-nav",
   subsets: ["latin"],
@@ -45,6 +45,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${navFont.variable} ${headingFont.variable} ${bodyFont.variable} font-body antialiased`}
       >
+        <Toaster position="top-center" reverseOrder={false} />
         <MainLayout>
           {children}
         </MainLayout>

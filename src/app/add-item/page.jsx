@@ -1,12 +1,22 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import toast from 'react-hot-toast';
+import { 
+  Plus, 
+  Image as ImageIcon, 
+  Tag, 
+  DollarSign, 
+  AlignLeft, 
+  Grid, 
+  Layers,
+  ArrowLeft
+} from "lucide-react";
 
 const AddItemPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  // ১. প্রোটেকশন: লগইন না থাকলে ইউজারকে লগইন পেজে পাঠিয়ে দেবে
   useEffect(() => {
     const cookies = document.cookie.split("; ");
     const isLogged = cookies.find((row) => row.startsWith("isLoggedIn=true"));
@@ -21,76 +31,138 @@ const AddItemPage = () => {
 
     const newItem = {
       name: e.target.itemName.value,
-      price: e.target.price.value,
-      description: e.target.description.value,
+      price: parseFloat(e.target.price.value),
+      category: e.target.category.value,
+      stock: e.target.stock.value,
       image: e.target.imageUrl.value,
+      description: e.target.description.value,
+      status: "Active",
+      rating: 5,
+      createdAt: new Date().toISOString(),
     };
 
     try {
-      // ২. আপনার এক্সপ্রেস সার্ভারে রিয়েল API কল
       const response = await fetch('http://localhost:5000/add-item', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newItem),
       });
 
       const data = await response.json();
 
-      // MongoDB সাধারণত insertedId রিটার্ন করে সফল হলে
       if (data.insertedId || data.acknowledged) {
-        alert("Success: Item Added to Database Successfully!");
-        e.target.reset(); // ফর্ম খালি করা
-        router.push("/items"); // আইটেম লিস্ট পেজে রিডাইরেক্ট
-      } else {
-        alert("Something went wrong!");
+        toast.success('Product added successfully');
+        e.target.reset();
+        setTimeout(() => router.push("/items"), 1200);
       }
     } catch (error) {
-      console.error("Error adding item:", error);
-      alert("Error: Failed to connect to server. Make sure your backend is running.");
+      toast.error('Failed to add product');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-base-200 py-10 px-4">
-      <div className="max-w-xl mx-auto card bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="text-3xl font-bold text-center text-primary mb-6">Add New Item</h2>
+    <div className="min-h-screen bg-white py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        
+        {/* Centered Heading Style - আপনার Features সেকশনের মতো */}
+        <div className="text-center mb-16 relative">
           
-          <form onSubmit={handleAddItem} className="space-y-4">
-            {/* Item Name */}
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
+            Add New <span className="text-primary italic">Product</span>
+          </h2>
+          <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mb-6"></div>
+          <p className="text-base-content/60 font-medium max-w-xl mx-auto">
+           Add the latest innovation to your store.
+          </p>
+        </div>
+
+        {/* Form Card */}
+        <div className="bg-gray-50 rounded-[2.5rem] p-8 md:p-12 border border-gray-100 shadow-sm">
+          <form onSubmit={handleAddItem} className="space-y-6">
+            
             <div className="form-control">
-              <label className="label font-semibold">Item Name</label>
-              <input name="itemName" type="text" placeholder="e.g. Wireless Mouse" className="input input-bordered focus:input-primary" required />
+              <label className="label">
+                <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
+                  <Tag size={14} className="text-primary" /> Product Name
+                </span>
+              </label>
+              <input name="itemName" type="text" placeholder="e.g. iPhone 15 Pro Max" 
+                className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
             </div>
 
-            {/* Price */}
-            <div className="form-control">
-              <label className="label font-semibold">Price ($)</label>
-              <input name="price" type="number" placeholder="49.99" className="input input-bordered focus:input-primary" required />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
+                    <DollarSign size={14} className="text-primary" /> Price (USD)
+                  </span>
+                </label>
+                <input name="price" type="number" step="0.01" placeholder="999" 
+                  className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
+                    <Grid size={14} className="text-primary" /> Category
+                  </span>
+                </label>
+                <select name="category" className="select select-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required>
+                  <option value="Laptops">Laptops</option>
+                  <option value="Smartphones">Smartphones</option>
+                  <option value="Audio">Audio</option>
+                  <option value="Gaming">Gaming</option>
+                  <option value="Accessories">Accessories</option>
+                </select>
+              </div>
             </div>
 
-            {/* Image URL */}
-            <div className="form-control">
-              <label className="label font-semibold">Image URL</label>
-              <input name="imageUrl" type="text" placeholder="https://example.com/image.jpg" className="input input-bordered focus:input-primary" required />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
+                    <ImageIcon size={14} className="text-primary" /> Image URL
+                  </span>
+                </label>
+                <input name="imageUrl" type="url" placeholder="https://image-link.com" 
+                  className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
+              </div>
+
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
+                    <Layers size={14} className="text-primary" /> Stock Status
+                  </span>
+                </label>
+                <select name="stock" className="select select-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold">
+                  <option value="In Stock">In Stock</option>
+                  <option value="Limited Stock">Limited Stock</option>
+                  <option value="Coming Soon">Coming Soon</option>
+                </select>
+              </div>
             </div>
 
-            {/* Description */}
             <div className="form-control">
-              <label className="label font-semibold">Description</label>
-              <textarea name="description" className="textarea textarea-bordered h-24 focus:textarea-primary" placeholder="Write item details here..." required></textarea>
+              <label className="label">
+                <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
+                  <AlignLeft size={14} className="text-primary" /> Product Description
+                </span>
+              </label>
+              <textarea name="description" rows="4" className="textarea textarea-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary font-medium p-4" placeholder="Describe the gadget's top features..." required></textarea>
             </div>
 
-            {/* Submit Button */}
-            <div className="form-control mt-6">
-              <button type="submit" className={`btn btn-primary text-white ${loading ? 'loading' : ''}`} disabled={loading}>
-                {loading ? "Adding..." : "Add Item to Store"}
+            <div className="pt-6">
+              <button 
+                type="submit" 
+                disabled={loading}
+                className="btn btn-primary w-full rounded-2xl text-white font-black uppercase tracking-widest h-16 shadow-lg shadow-primary/20"
+              >
+                {loading ? <span className="loading loading-spinner"></span> : <><Plus size={20} className="mr-2" /> Add to Inventory</>}
               </button>
             </div>
+
           </form>
         </div>
       </div>
