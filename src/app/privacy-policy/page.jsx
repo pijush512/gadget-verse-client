@@ -15,11 +15,11 @@ const PrivacyPolicy = () => {
 
         {/* Header Style - আপনার প্রজেক্টের মত */}
         <div className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
-            Privacy <span className="text-[#422ad5] italic">Policy</span>
+          <h1 className="text-4xl text-center md:text-6xl font-black uppercase tracking-tighter mb-4">
+            Privacy <span className="text-[#422ad5]  italic">Policy</span>
           </h1>
-          <div className="h-1.5 w-20 bg-[#422ad5] rounded-full mb-6"></div>
-          <p className="text-gray-500 font-medium">Last updated: January 2026</p>
+          <div className="h-1.5 w-20 bg-[#422ad5] mx-auto rounded-full mb-6"></div>
+          <p className="text-gray-500 text-center font-medium">Last updated: January 2026</p>
         </div>
 
         {/* Content Section */}

@@ -30,9 +30,9 @@ const Footer = () => {
           <div className="flex flex-col gap-3">
             <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-2">Quick Links</h4>
             <Link href="/items" className="text-sm hover:text-primary transition-colors">All Products</Link>
-            <Link href="#" className="text-sm hover:text-primary transition-colors">Privacy Policy</Link>
-            <Link href="#" className="text-sm hover:text-primary transition-colors">Terms of Service</Link>
-            <Link href="#" className="text-sm hover:text-primary transition-colors">Contact Us</Link>
+            <Link href="/privacy-policy" className="text-sm hover:text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="text-sm hover:text-primary transition-colors">Terms of Service</Link>
+            <Link href="/contact" className="text-sm hover:text-primary transition-colors">Contact Us</Link>
           </div>
 
           {/* ৩. সোশ্যাল ও কন্টাক্ট */}

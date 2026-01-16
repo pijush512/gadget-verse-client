@@ -13,11 +13,11 @@ const TermsOfService = () => {
         </Link>
 
         <div className="mb-16">
-          <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+          <h1 className="text-4xl text-center md:text-6xl font-black uppercase tracking-tighter mb-4">
             Terms of <span className="text-[#422ad5] italic">Service</span>
           </h1>
-          <div className="h-1.5 w-20 bg-[#422ad5] rounded-full mb-6"></div>
-          <p className="text-gray-500 font-medium">Agreement for all GadgetVerse users</p>
+          <div className="h-1.5 w-20 bg-[#422ad5] rounded-full mb-6 mx-auto"></div>
+          <p className="text-gray-500 text-center font-medium">Agreement for all GadgetVerse users</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
