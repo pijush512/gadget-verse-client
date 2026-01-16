@@ -28,7 +28,6 @@ const FeaturedProducts = () => {
 
   return (
     <div className="my-24 px-4 px-10 w-11/12 mx-auto font-sans">
-      {/* Centered Minimal Header */}
       <div className="text-center mb-16">
 
          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
