@@ -5,8 +5,6 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 const Contact = () => {
   return (
     <div className="max-w-6xl mx-auto py-24 px-6 font-sans">
-      
-      {/* Centered Heading Style - Features সেকশনের মতো */}
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
           Get In <span className="text-primary italic">Touch</span>
@@ -18,7 +16,6 @@ const Contact = () => {
       </div>
 
       <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Contact Information */}
         <div className="space-y-6">
           <div className="p-8 bg-base-200 rounded-[2.5rem] border border-base-300 flex items-center gap-6">
             <div className="w-14 h-14 bg-primary/10 flex items-center justify-center rounded-2xl text-primary">
@@ -40,8 +37,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        {/* Simplified Contact Form */}
         <div className="bg-base-100 p-10 rounded-[3rem] border border-base-200 shadow-xl">
           <form className="space-y-4">
             <input type="text" placeholder="NAME" className="input input-bordered w-full rounded-xl h-14 font-bold text-xs tracking-widest" />

@@ -7,13 +7,9 @@ const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-white py-12 md:py-24 px-6">
       <div className="max-w-4xl mx-auto">
-        
-        {/* Back Link */}
         <Link href="/" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 hover:text-[#422ad5] transition-all mb-12">
           <ArrowLeft size={14} /> Back to Home
         </Link>
-
-        {/* Header Style - আপনার প্রজেক্টের মত */}
         <div className="mb-16">
           <h1 className="text-4xl text-center md:text-6xl font-black uppercase tracking-tighter mb-4">
             Privacy <span className="text-[#422ad5]  italic">Policy</span>
@@ -21,10 +17,8 @@ const PrivacyPolicy = () => {
           <div className="h-1.5 w-20 bg-[#422ad5] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-500 text-center font-medium">Last updated: January 2026</p>
         </div>
-
-        {/* Content Section */}
         <div className="space-y-12">
-          
+
           <section className="space-y-4">
             <div className="flex items-center gap-3 text-[#422ad5]">
               <Eye size={24} strokeWidth={2.5} />
@@ -56,8 +50,6 @@ const PrivacyPolicy = () => {
           </section>
 
         </div>
-
-        {/* Contact Note */}
         <div className="mt-20 p-8 rounded-[2rem] bg-gray-50 border border-gray-100">
           <p className="text-sm font-bold text-gray-500 uppercase tracking-widest text-center">
             Questions? Email us at <span className="text-[#422ad5]">privacy@gadgetverse.com</span>

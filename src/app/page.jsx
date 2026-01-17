@@ -1,12 +1,10 @@
 import Banner from "@/components/banner";
 import Brands from "@/components/brands";
-
 import FeaturedProducts from "@/components/featuredProducts";
 import Features from "@/components/features";
 import Newsletter from "@/components/newsletter";
 import Statistics from "@/components/statistics";
 import Testimonials from "@/components/testimonials";
-// import Image from "next/image";
 
 export default function Home() {
   return (
