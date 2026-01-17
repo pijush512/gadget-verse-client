@@ -48,5 +48,5 @@
 3.  **Open the app:** Go to [http://localhost:3000](http://localhost:3000)
 
 ---
-**Live Demo:** [Click Here to View Live](https://your-vercel-link.vercel.app)  
+**Live Demo:** [Click Here to View Live](https://gadget-verse-client.vercel.app)  
 **Server API:** [Backend URL](https://gadget-verse-server.vercel.app)
