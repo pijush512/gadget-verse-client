@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ShoppingCart, Eye, Star, Search, ChevronLeft, ChevronRight, SlidersHorizontal, Sparkles } from 'lucide-react';
+import { Eye, Star, Search, ChevronLeft, ChevronRight, SlidersHorizontal, Sparkles } from 'lucide-react';
 
 const ItemsPage = () => {
   const [items, setItems] = useState([]);
@@ -54,8 +54,6 @@ const ItemsPage = () => {
   return (
     <div className="min-h-screen bg-base-100 py-24 px-4 md:px-10">
       <div className="w-11/12 mx-auto">
-
-        {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div className="text-left">
             <div className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-[0.3em] text-[10px] mb-2">
@@ -98,8 +96,6 @@ const ItemsPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Items Grid - Featured Card Style */}
         {filteredItems.length === 0 ? (
           <div className="text-center py-32 bg-base-200/50 rounded-[3rem] border border-dashed border-base-300">
             <h2 className="text-2xl font-black uppercase opacity-20 tracking-widest">No items found!</h2>
@@ -109,8 +105,6 @@ const ItemsPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {currentItems.map((item) => (
                 <div key={item._id} className="group bg-base-200 rounded-lg border border-base-300 hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
-
-                  {/* Image Area - Featured Style */}
                   <div className="relative aspect-[5/4] overflow-hidden bg-white p-4 flex items-center justify-center">
                     <span className="absolute top-4 left-4 z-10 bg-white/20 px-2 py-0.5 rounded-lg text-[8px] font-black uppercase tracking-widest shadow-sm">
                       {item.category || "New"}
@@ -121,8 +115,6 @@ const ItemsPage = () => {
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-
-                  {/* Content Area - Featured Style */}
                   <div className="p-5 flex flex-col flex-grow">
                     <div className="flex justify-between items-center mb-2">
                       <div className="flex items-center gap-1">
@@ -133,7 +125,6 @@ const ItemsPage = () => {
                         ${item.price}
                       </span>
                     </div>
-
                     <h3 className="text-base font-black leading-tight mb-2 line-clamp-1 uppercase">
                       {item.name}
                     </h3>
@@ -154,8 +145,7 @@ const ItemsPage = () => {
                 </div>
               ))}
             </div>
-
-            {/* Pagination Controls */}
+            {/* Pagination*/}
             {totalPages > 1 && (
               <div className="flex justify-center items-center mt-20 gap-3">
                 <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1} className="btn disabled:opacity-20">
@@ -166,8 +156,8 @@ const ItemsPage = () => {
                     key={i + 1}
                     onClick={() => paginate(i + 1)}
                     className={`w-12 h-12 rounded-2xl font-black text-xs transition-all duration-300 ${currentPage === i + 1
-                        ? 'bg-primary text-white shadow-xl shadow-primary/20 scale-110'
-                        : 'bg-base-200 text-base-content/40 hover:bg-base-300'
+                      ? 'bg-primary text-white shadow-xl shadow-primary/20 scale-110'
+                      : 'bg-base-200 text-base-content/40 hover:bg-base-300'
                       }`}
                   >
                     {String(i + 1).padStart(2, '0')}
