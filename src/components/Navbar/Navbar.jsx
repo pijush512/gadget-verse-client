@@ -1,9 +1,8 @@
 "use client";
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import LogoImg from '../../../public/icon.png'
 import { usePathname, useRouter } from 'next/navigation';
-import { Cpu, LogOut, UserCircle } from 'lucide-react'; // আইকন যোগ করা হয়েছে
+import { Cpu, LogOut, UserCircle } from 'lucide-react'; 
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -45,7 +44,6 @@ const Navbar = () => {
             </ul>
           </div>
           <Link href="/" className='flex items-center gap-2'>
-            {/* <img className='w-10 h-10 object-contain' src={LogoImg.src} alt="Logo" /> */}
             <Cpu size={28} className="text-primary" strokeWidth={2.5} />
             <span className="text-2xl font-black tracking-tighter uppercase italic hidden md:inline-block">
               Gadget<span className="text-primary">Verse</span>
