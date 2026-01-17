@@ -2,16 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from 'react-hot-toast';
-import {
-  Plus,
-  Image as ImageIcon,
-  Tag,
-  DollarSign,
-  AlignLeft,
-  Grid,
-  Layers,
-  ArrowLeft
-} from "lucide-react";
+import { Plus, Image as ImageIcon, Tag, DollarSign, AlignLeft, Grid, Layers, ArrowLeft } from "lucide-react";
 
 const AddItemPage = () => {
   const router = useRouter();
@@ -65,10 +56,7 @@ const AddItemPage = () => {
   return (
     <div className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-4xl mx-auto">
-
-        {/* Centered Heading Style - আপনার Features সেকশনের মতো */}
         <div className="text-center mb-16 relative">
-
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
             Add New <span className="text-primary italic">Product</span>
           </h2>
@@ -77,8 +65,7 @@ const AddItemPage = () => {
             Add the latest innovation to your store.
           </p>
         </div>
-
-        {/* Form Card */}
+        {/* Form  */}
         <div className="bg-gray-50 rounded-[2.5rem] p-8 md:p-12 border border-gray-100 shadow-sm">
           <form onSubmit={handleAddItem} className="space-y-6">
 
@@ -91,7 +78,6 @@ const AddItemPage = () => {
               <input name="itemName" type="text" placeholder="e.g. iPhone 15 Pro Max"
                 className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
             </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="form-control">
                 <label className="label">
@@ -102,7 +88,6 @@ const AddItemPage = () => {
                 <input name="price" type="number" step="0.01" placeholder="999"
                   className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
               </div>
-
               <div className="form-control">
                 <label className="label">
                   <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
