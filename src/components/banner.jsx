@@ -50,14 +50,16 @@ const Hero = () => {
       title: "Visionary VR Gear",
       subtitle: "STEP INTO THE METAVERSE",
       desc: "Experience ultra-realistic graphics and 360-degree sound with our latest VR sets.",
-      img: "/banner.avif",
+       img: "/banner2.avif",
+     
     },
     {
       id: 3,
       title: "Quantum Wearables",
       subtitle: "SMART LIFE, SMART STYLE",
       desc: "Monitor your health 24/7 with the most advanced sensors ever put in a watch.",
-      img: "/banner3.avif",
+      // img: "/banner3.avif",
+      img: "https://images.pexels.com/photos/15249470/pexels-photo-15249470.jpeg?referrer=grok.com"
     },
   ];
 

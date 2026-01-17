@@ -2,13 +2,13 @@
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import toast from 'react-hot-toast';
-import { 
-  Plus, 
-  Image as ImageIcon, 
-  Tag, 
-  DollarSign, 
-  AlignLeft, 
-  Grid, 
+import {
+  Plus,
+  Image as ImageIcon,
+  Tag,
+  DollarSign,
+  AlignLeft,
+  Grid,
   Layers,
   ArrowLeft
 } from "lucide-react";
@@ -42,7 +42,7 @@ const AddItemPage = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/add-item', {
+      const response = await fetch('https://gadget-verse-server.vercel.app/add-item', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newItem),
@@ -65,30 +65,30 @@ const AddItemPage = () => {
   return (
     <div className="min-h-screen bg-white py-20 px-6">
       <div className="max-w-4xl mx-auto">
-        
+
         {/* Centered Heading Style - আপনার Features সেকশনের মতো */}
         <div className="text-center mb-16 relative">
-          
+
           <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
             Add New <span className="text-primary italic">Product</span>
           </h2>
           <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-base-content/60 font-medium max-w-xl mx-auto">
-           Add the latest innovation to your store.
+            Add the latest innovation to your store.
           </p>
         </div>
 
         {/* Form Card */}
         <div className="bg-gray-50 rounded-[2.5rem] p-8 md:p-12 border border-gray-100 shadow-sm">
           <form onSubmit={handleAddItem} className="space-y-6">
-            
+
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-bold text-gray-600 flex items-center gap-2 uppercase text-[10px] tracking-widest">
                   <Tag size={14} className="text-primary" /> Product Name
                 </span>
               </label>
-              <input name="itemName" type="text" placeholder="e.g. iPhone 15 Pro Max" 
+              <input name="itemName" type="text" placeholder="e.g. iPhone 15 Pro Max"
                 className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
             </div>
 
@@ -99,7 +99,7 @@ const AddItemPage = () => {
                     <DollarSign size={14} className="text-primary" /> Price (USD)
                   </span>
                 </label>
-                <input name="price" type="number" step="0.01" placeholder="999" 
+                <input name="price" type="number" step="0.01" placeholder="999"
                   className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
               </div>
 
@@ -126,7 +126,7 @@ const AddItemPage = () => {
                     <ImageIcon size={14} className="text-primary" /> Image URL
                   </span>
                 </label>
-                <input name="imageUrl" type="url" placeholder="https://image-link.com" 
+                <input name="imageUrl" type="url" placeholder="https://image-link.com"
                   className="input input-bordered w-full rounded-2xl bg-white border-gray-200 focus:outline-primary h-14 font-semibold" required />
               </div>
 
@@ -154,8 +154,8 @@ const AddItemPage = () => {
             </div>
 
             <div className="pt-6">
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={loading}
                 className="btn btn-primary w-full rounded-2xl text-white font-black uppercase tracking-widest h-16 shadow-lg shadow-primary/20"
               >

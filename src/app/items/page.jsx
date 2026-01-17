@@ -13,7 +13,7 @@ const ItemsPage = () => {
   const itemsPerPage = 12;
 
   useEffect(() => {
-    fetch('http://localhost:5000/items') 
+    fetch('https://gadget-verse-server.vercel.app/items')
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -54,7 +54,7 @@ const ItemsPage = () => {
   return (
     <div className="min-h-screen bg-base-100 py-24 px-4 md:px-10">
       <div className="w-11/12 mx-auto">
-        
+
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div className="text-left">
@@ -64,17 +64,17 @@ const ItemsPage = () => {
             <h1 className="text-4xl md:text-6xl font-black mt-2 tracking-tighter uppercase leading-none">
               All <span className="italic text-primary">Gadgets</span>
             </h1>
-             <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mt-3"></div>
+            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mt-3"></div>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
             <div className="relative group flex-grow">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-base-content/30 group-focus-within:text-primary transition-colors" size={18} />
-              <input 
-                type="text" 
-                placeholder="Search gadgets..." 
+              <input
+                type="text"
+                placeholder="Search gadgets..."
                 value={searchQuery}
-                onChange={(e) => {setSearchQuery(e.target.value); setCurrentPage(1);}}
+                onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                 className="w-full md:w-64 h-14 pl-12 pr-4 bg-base-200 border-none rounded-2xl focus:ring-2 focus:ring-primary/20 outline-none font-bold text-sm transition-all"
               />
             </div>
@@ -86,8 +86,8 @@ const ItemsPage = () => {
               <ul tabIndex={0} className="dropdown-content z-[20] menu p-2 shadow-2xl bg-base-100 rounded-2xl w-52 mt-2 border border-base-200">
                 {categories.map(cat => (
                   <li key={cat}>
-                    <button 
-                      onClick={() => {setSelectedCategory(cat); setCurrentPage(1);}}
+                    <button
+                      onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }}
                       className={`${selectedCategory === cat ? 'bg-primary text-white' : ''} font-bold uppercase text-[10px] tracking-widest p-3`}
                     >
                       {cat}
@@ -109,7 +109,7 @@ const ItemsPage = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {currentItems.map((item) => (
                 <div key={item._id} className="group bg-base-200 rounded-lg border border-base-300 hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
-                  
+
                   {/* Image Area - Featured Style */}
                   <div className="relative aspect-[5/4] overflow-hidden bg-white p-4 flex items-center justify-center">
                     <span className="absolute top-4 left-4 z-10 bg-white/20 px-2 py-0.5 rounded-lg text-[8px] font-black uppercase tracking-widest shadow-sm">
@@ -143,8 +143,8 @@ const ItemsPage = () => {
                     </p>
 
                     <div className="flex gap-2 mt-auto">
-                      <Link 
-                        href={`/items/${item._id}`} 
+                      <Link
+                        href={`/items/${item._id}`}
                         className="flex-grow btn btn-primary rounded px-12 font-bold text-xs hover:scale-105 transition-all"
                       >
                         <Eye size={14} /> View Details
@@ -158,23 +158,24 @@ const ItemsPage = () => {
             {/* Pagination Controls */}
             {totalPages > 1 && (
               <div className="flex justify-center items-center mt-20 gap-3">
-                <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1} className="btn btn-circle btn-ghost disabled:opacity-20">
+                <button onClick={() => paginate(currentPage - 1)} disabled={currentPage === 1} className="btn disabled:opacity-20">
                   <ChevronLeft size={20} />
-                </button>
+                  Prev</button>
                 {[...Array(totalPages)].map((_, i) => (
                   <button
                     key={i + 1}
                     onClick={() => paginate(i + 1)}
-                    className={`w-12 h-12 rounded-2xl font-black text-xs transition-all duration-300 ${
-                      currentPage === i + 1 
-                      ? 'bg-primary text-white shadow-xl shadow-primary/20 scale-110' 
-                      : 'bg-base-200 text-base-content/40 hover:bg-base-300'
-                    }`}
+                    className={`w-12 h-12 rounded-2xl font-black text-xs transition-all duration-300 ${currentPage === i + 1
+                        ? 'bg-primary text-white shadow-xl shadow-primary/20 scale-110'
+                        : 'bg-base-200 text-base-content/40 hover:bg-base-300'
+                      }`}
                   >
                     {String(i + 1).padStart(2, '0')}
+
                   </button>
                 ))}
-                <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages} className="btn btn-circle btn-ghost disabled:opacity-20">
+                <button onClick={() => paginate(currentPage + 1)} disabled={currentPage === totalPages} className="btn disabled:opacity-30">
+                  Next
                   <ChevronRight size={20} />
                 </button>
               </div>

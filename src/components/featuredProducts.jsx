@@ -8,7 +8,7 @@ const FeaturedProducts = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/items') 
+    fetch('https://gadget-verse-server.vercel.app/items')
       .then((res) => res.json())
       .then((data) => {
         setItems(data.slice(0, 8));
@@ -30,7 +30,7 @@ const FeaturedProducts = () => {
     <div className="my-24 px-4 px-10 w-11/12 mx-auto font-sans">
       <div className="text-center mb-16">
 
-         <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
+        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
           Featured <span className="text-primary italic">Gadgets</span>
         </h2>
         <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mb-6"></div>
@@ -40,7 +40,7 @@ const FeaturedProducts = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map((item) => (
           <div key={item._id} className="group bg-gray-300 rounded-lg border border-base-300  hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
-            
+
             {/* 1. Compact Image Area */}
             <div className="relative aspect-[5/4] overflow-hidden bg-white p-4 flex items-center justify-center">
               <span className="absolute top-4 left-4 z-10 bg-white/20 px-2 py-0.5 rounded-lg text-[8px] font-black uppercase tracking-widest shadow-sm">
@@ -78,13 +78,13 @@ const FeaturedProducts = () => {
 
               {/* Minimal Buttons */}
               <div className="flex gap-2 mt-auto">
-                <Link 
-                  href={`/items/${item._id}`} 
+                <Link
+                  href={`/items/${item._id}`}
                   className="flex-grow btn btn-primary  rounded px-12 font-nav hover:scale-105 transition-all"
                 >
                   <Eye size={14} /> View Details
                 </Link>
-                
+
               </div>
             </div>
           </div>
