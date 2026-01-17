@@ -24,8 +24,6 @@ const ItemDetails = () => {
   return (
     <div className="min-h-screen bg-base-200 py-12 px-6">
       <div className="max-w-6xl mx-auto">
-
-        {/* Minimal Back Button */}
         <button
           onClick={() => router.back()}
           className="flex btn items-center gap-2 text-[10px] font-black uppercase tracking-[0.3em] text-gray-400 hover:text-white hover:bg-primary rounded-lg transition-all mb-12"
@@ -34,8 +32,6 @@ const ItemDetails = () => {
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-
-          {/* Left: High-Sharp Image Showcase */}
           <div className="relative group">
             <div className="bg-[#fcfcfd] rounded-[3rem] p-12 border border-gray-100 flex items-center justify-center overflow-hidden shadow-sm">
               <img
@@ -49,7 +45,6 @@ const ItemDetails = () => {
             </div>
           </div>
 
-          {/* Right: Content & Detailed Services */}
           <div className="space-y-10 bg-base-100 p-10">
             <div className="space-y-3">
               <div className="flex items-center gap-1.5 text-amber-500">
@@ -66,21 +61,17 @@ const ItemDetails = () => {
               {item.description}
             </p>
 
-            {/* --- Enhanced Service & Security Grid --- */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {/* Security Card */}
               <div className="p-5 rounded-2xl hover:shadow-lg  border border-gray-100 bg-gray-50/50 hover:border-[#422ad5]/30 transition-colors">
                 <ShieldCheck className="text-[#422ad5] mb-3" size={24} strokeWidth={2.5} />
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-900">Secure Store</h4>
                 <p className="text-[9px] font-bold text-gray-400 mt-1 uppercase">100% Protection</p>
               </div>
-              {/* Shipping Card */}
               <div className="p-5 hover:shadow-lg  rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#422ad5]/30 transition-colors">
                 <Truck className="text-[#422ad5] mb-3" size={24} strokeWidth={2.5} />
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-900">Free Shipping</h4>
                 <p className="text-[9px] font-bold text-gray-400 mt-1 uppercase">Next Day Delivery</p>
               </div>
-              {/* Service Card */}
               <div className="p-5 rounded-2xl border border-gray-100 bg-gray-50/50 hover:border-[#422ad5]/30 transition-colors hover:shadow-lg transition-all">
                 <RotateCcw className="text-[#422ad5] mb-3" size={24} strokeWidth={2.5} />
                 <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-900">Easy Return</h4>
@@ -88,7 +79,6 @@ const ItemDetails = () => {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="pt-4 flex flex-col sm:flex-row items-center gap-6">
               <button
                 onClick={() => toast.success('Added to Bag')}
